@@ -1,0 +1,228 @@
+* { /*Resete do padrão*/
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body{
+  backdrop-filter: blur(5px);
+  background-image: url('https://i.pinimg.com/originals/75/51/1b/75511b6305a5486de10a2d0ea91e5230.jpg');
+  background-size: 100vw auto;
+  font-family: Arial;
+  height: 100vh;
+  font-size: 12px;
+  color: white;
+  font-family: 'Roboto Slab', serif;
+}
+
+
+/*breakpoint*/
+@media (min-width: 1200px) {
+  body {
+    font-size: 20px;
+    background-image: url('https://i.pinimg.com/736x/ec/52/9a/ec529a04c518c46d1b513680741a4e3d.jpg');
+  }
+  .menu{
+    background-color:black;
+  }
+}
+
+header{
+  display: flex;
+  height: 100vh;
+  justify-content: center; /*alinha horizontal*/
+  align-items: center; 
+}
+
+.menu{
+  background-color: darkblue;
+  position: fixed;
+  top: 0;
+  width: 100vw;
+  z-index: 1;
+}
+
+a{
+  color: white;
+  text-decoration: none;
+}
+
+a:hover{
+  color: red;
+  text-decoration: underline;
+  font-weight: bold;
+}
+
+.menu li{
+  list-style: none;
+}
+
+.menu a{
+  display: block;
+  padding: 10px 20px;
+  transition: background-color 1s, color 1s;
+}
+
+.menu a:hover{
+  background-color:whitesmoke;
+  color: black;
+}
+
+.menu ul{
+  display: flex; /*transforma em coluna*/
+  justify-content: space-evenly
+}
+
+.Titulos{
+  transform: scale(0.2) translateY(50vh);
+  opacity: 0;
+  
+  animation: ease 2s animacao forwards;
+}
+
+@keyframes animacao{
+  0%{ /*Inicial, pode usar from e to*/
+    transform: scale(0.2) translateY(50vh);
+    opacity: 0;
+  }
+  100%{ /*estado final*/
+    transform: scale(1) translate(0);
+    opacity: 1;
+  }
+}
+
+.site-subtitle,
+.site-title{
+  color: whitesmoke;
+  font-family: 'Press Start 2P', cursive;
+  text-align: center;
+}
+
+.site-subtitle{
+  font-style: italic;
+  line-height: 1.8;
+}
+
+.video,
+.sobre,
+.contatos,
+.portfolio{
+  padding: 2em;
+  min-height: 100vh; /*minimo da altura*/
+  margin-left: auto;
+  margin-right: auto;
+}
+
+@media (min-width: 1200px){
+  .container{
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 1200px;
+  }  
+}
+
+.video h2,
+.sobre h2,
+.contatos h2,
+.portfolio h2{
+  font-family: 'Pacifico', cursive;
+  color: whitesmoke;
+  margin-bottom: 1.4em;
+  font-size: 2em;
+  text-align: justify;
+}
+
+.sobre p{
+  color: whitesmoke;
+  margin-bottom: 2;
+  text-indent: 2em;
+}
+
+.sobre a{
+  color: grey
+}
+
+.sobre .avatar{
+  float: right;
+  margin-left: 2em;
+}
+
+.sobre .avatar img{
+  height: 400px;
+  width: 400px;
+  border-radius: 50%;
+}
+
+@media(min-width: 300px){
+  .sobre .avatar img{
+    height: 300px;
+    width: 300px;
+    margin-bottom: 20px;
+  }
+}
+
+.img-portfolio{
+  height: 180px;
+  width: 180px;
+  object-fit: contain;
+  object-position: center;
+  transition: transform 500ms;
+}
+
+.img-portfolio:hover{
+  transform: rotate(45deg);
+}
+
+.video .grid,
+.portfolio .grid{ /*seleciona a classe grid dentro da classe portfolio*/
+  display: grid;
+  gap: 1em; /*defini o espaçamente entre coluna ou linha do grid*/
+  align-content: center;
+  justify-content: center;
+}
+
+.video .grid{
+  grid-template-columns: 510px 510px;
+  gap: 2em;
+}
+
+.video iframe{
+  width: 500px;
+}
+
+/*se a tela tiver pelo menos 400px de largura, vai carregar estes estilos*/
+@media (min-width: 560px) {
+  .portfolio .grid{ 
+    grid-template-columns: repeat(2, 240px);
+  }
+  .video .grid{
+    grid-template-columns: none;
+  }
+}
+
+@media (min-width: 1200px) {
+  .portfolio .grid{ 
+    grid-template-columns: repeat(3, 240px);
+  }
+}
+
+.portfolio figure{
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.contatos .icons{
+  text-align: center;
+}
+
+.contatos a{
+  color: whitesmoke;
+  font-size: 10em;
+  transition: text-shadow 1s;
+}
+
+.contatos a:active, /*o momento do touch*/
+.contatos a:hover{
+  text-decoration: none;
+  text-shadow: 0px 0px 15px red;
+}
